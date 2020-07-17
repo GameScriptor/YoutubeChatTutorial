@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <input id="msg">
+    <button onclick="ws.send(msg.value)">Send</button>
+    <div id="msgs"></div>
+    
+    <script>
+        var ws = new WebSocket("ws://localhost:8080");
+        ws.onmessage = e => {
+            msgs.innerHTML += `<p>${e.data}</p>`;
+        }
+    </script>
+</body>
+</html>
